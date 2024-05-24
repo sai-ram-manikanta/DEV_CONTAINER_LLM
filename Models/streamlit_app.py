@@ -1,9 +1,13 @@
 import streamlit as st
 import google.generativeai as genai
+from dotenv import load_dotenv
 
-GOOGLE_API_KEY = 'AIzaSyBrWhFNp-QDj3yAjJbW7-ukgqoRYO2-vL4'
+# Load environment variables
+load_dotenv()
 
-genai.configure(api_key = GOOGLE_API_KEY)
+# Configuration for Google Generative AI
+GOOGLE_API_KEY = os.getenv('API_KEY')
+genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
 
 st.title('LLM Model Draft v1.0')
